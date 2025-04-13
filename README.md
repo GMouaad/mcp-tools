@@ -1,16 +1,61 @@
-# Getting started with .NET Aspire and Dev Containers
+# MCP Tools Repository
 
-This is a repository template to streamline the process of getting started with .NET Aspire using Dev Containers in both Visual Studio Code and GitHub Codespaces. Please refer to our product documentation on how to use these repository templates to get started.
+This repository contains a collection of tools built using the Model Context Protocol (MCP). The primary goal is to develop various MCP tools for local usage, leveraging .NET Aspire for service orchestration and C# as the main programming language.
 
-- [.NET Aspire and GitHub Codespaces](https://learn.microsoft.com/dotnet/aspire/get-started/github-codespaces)
-- [.NET Aspire and Visual Studio Code Dev Containers](https://learn.microsoft.com/dotnet/aspire/get-started/dev-containers)
+## About the Project
 
-> [!NOTE]
-> Once you have created your repository from this template please remember to review the included files such as `LICENSE`, `CODE_OF_CONDUCT.md`, `SECURITY.md` and this `README.md` file to ensure they are appropriate for your circumstances.
+The MCP Tools project aims to provide developers with a set of utilities for working with the Model Context Protocol, making it easier to build, debug, and test MCP-enabled applications locally.
 
-# Code of Conduct
+## Technology Stack
 
-This project has adopted the code of conduct defined by the Contributor Covenant
-to clarify expected behavior in our community.
+- **Programming Language:** C# (latest stable version)
+- **Framework:** .NET (latest stable version)
+- **Orchestration:** .NET Aspire
+- **Development Environment:** Visual Studio / VS Code
 
-For more information, see the [.NET Foundation Code of Conduct](https://dotnetfoundation.org/code-of-conduct).
+## Getting Started
+
+### Prerequisites
+
+- [.NET SDK](https://dotnet.microsoft.com/download) (latest stable version)
+- Visual Studio 2022 or VS Code with C# extension
+
+### Setup and Running
+
+1. Clone the repository
+2. Open the solution in Visual Studio or VS Code
+3. Build and run the AppHost project to start all services
+
+```bash
+dotnet build
+cd AppHost
+dotnet run
+```
+
+## Project Structure
+
+- **AppHost**: .NET Aspire orchestration project that manages all MCP tools as services
+- Each tool in the repository is organized as a separate project with its own responsibility
+
+## .NET Aspire Integration
+
+This project leverages .NET Aspire for service orchestration. Services and resources are defined in the AppHost project, making it easy to:
+
+- Discover and communicate between services
+- Configure and manage services
+- Monitor service health and logs
+
+## Documentation and Resources
+
+### .NET Aspire Documentation
+
+- [Overview](https://learn.microsoft.com/en-us/dotnet/aspire/)
+- [App Host Project](https://learn.microsoft.com/en-us/dotnet/aspire/fundamentals/app-host-project)
+- [Service Defaults](https://learn.microsoft.com/en-us/dotnet/aspire/fundamentals/service-defaults)
+
+### MCP (Model Context Protocol)
+
+- [Official C# SDK Repository](https://github.com/modelcontextprotocol/csharp-sdk)
+- [Getting Started (Server)](https://github.com/modelcontextprotocol/csharp-sdk/blob/main/README.md#getting-started-server)
+- [MCP Inspector](https://github.com/modelcontextprotocol/inspector)
+- [SDK Samples](https://github.com/modelcontextprotocol/csharp-sdk/tree/main/samples)

@@ -1,0 +1,16 @@
+{
+    "dotnet.defaultSolution": "AppHost.slnx",
+    "mcp": {
+        "inputs": [],
+        "servers": {
+            "filesystem": {
+                "command": "npx",
+                "args": ["-y", "@modelcontextprotocol/server-filesystem", "/Users/mouaadgssair/Desktop/_workspace/codeRepos/mcp-tools"],
+            },
+            "git": {
+                "command": "uvx",
+                "args": ["mcp-server-git", "--repository", "https://github.com/GMouaad/mcp-tools.git", "--branch", "main"],
+            },
+        }
+    }
+}
