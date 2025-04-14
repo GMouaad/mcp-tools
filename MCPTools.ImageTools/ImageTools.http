@@ -1,0 +1,14 @@
+
+### Convert image to Mermaid diagram (URL parameters)
+@host =https://localhost:7270
+### Upload an image and send for processing
+# This request sends a multipart/form-data request.
+POST {{host}}/convert-image-to-mermaid?diagramType=flowchart&additionalInstructions=Makeitconcise
+# Accept: application/json
+Accept: text/plain
+Content-Type: multipart/form-data; boundary=boundary_string_example_rider_will_replace
+
+--boundary_string_example_rider_will_replace
+Content-Disposition: form-data; name="imageFile"; filename="ASPNETRoutingModel.png"
+
+< /path/img.png
