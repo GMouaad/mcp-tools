@@ -17,18 +17,10 @@ var imageTools = builder.AddProject<Projects.MCPTools_ImageTools>("image-tools")
   .WithOtlpExporter();
 
 // Run MCP Inspector
-// as executable 
-// npx @modelcontextprotocol/inspector
-builder.AddExecutable("mcp-inspector-exec", "npx", "@modelcontextprotocol/inspector")
-  .WithEnvironment("CLIENT_PORT", "5177")
-  .WithHttpEndpoint(targetPort:5177)
-  .WithExternalHttpEndpoints();
-
-// inside docker
 builder.AddContainer("mcp-inspector", "mcp/inspector")
   .WithReference(imageTools)
-  .WithEnvironment("CLIENT_PORT", "5173")
-  .WithHttpEndpoint(targetPort:5173)
+  .WithEnvironment("CLIENT_PORT", "5183")
+  .WithHttpEndpoint(targetPort:5183)
   .WithExternalHttpEndpoints()
   .WithLifetime(ContainerLifetime.Persistent);
 

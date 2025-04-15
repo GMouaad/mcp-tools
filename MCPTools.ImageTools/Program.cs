@@ -5,6 +5,7 @@ using Microsoft.Extensions.AI;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddLogging(b => b.AddConsole().SetMinimumLevel(LogLevel.Trace));
 
@@ -17,14 +18,13 @@ builder.AddOllamaApiClient("ollama-gemma3")
   .UseOpenTelemetry();
 
 builder.Services.AddMcpServer()
-  .WithTools<ImageToMermaidTool>();
+  .WithPromptsFromAssembly()
+  .WithToolsFromAssembly();
 
 builder.AddServiceDefaults();
 
 builder.Services.ConfigureHttpClientDefaults(http =>
 {
-  // Turn on resilience by default
-  // http.AddStandardResilienceHandler();
 #pragma warning disable EXTEXP0001
   http.RemoveAllResilienceHandlers();
 #pragma warning restore EXTEXP0001
@@ -36,9 +36,18 @@ builder.Services.ConfigureHttpClientDefaults(http =>
 
 var app = builder.Build();
 
-app.MapMcp("/sse");
-
-// var chatClient = app.Services.GetRequiredService<IChatClient>();
+app.MapMcp(""
+//   , runSessionAsync: (context, server, ct) =>
+// {
+//   server.RegisterNotificationHandler("Echo", (notification, token) =>
+//   {
+//     var message = notification.Params?["message"]?.GetValue<string>();
+//     context.RequestServices.GetService<ILogger>()?.LogInformation("Received message: {Message}", message);
+//     // return Task.FromResult($"Hello {message}");
+//     return Task.CompletedTask;
+//   });
+//   return Task.CompletedTask;}
+);
 
 // POST API to convert image to mermaid
 app.MapPost("/convert-image-to-mermaid", async (
@@ -101,6 +110,5 @@ app.MapPost("/convert-image-to-mermaid", async (
   .Produces<string>(StatusCodes.Status400BadRequest) // For Swagger: Bad request response type
   .Produces<string>(StatusCodes.Status500InternalServerError) // For Swagger: Server error type
   .DisableAntiforgery();
-;
 
 app.Run();
