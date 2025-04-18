@@ -14,10 +14,12 @@ builder.Services.AddScoped<ImageToMermaidTool>();
 // Add the Ollama chat client using aspire client integration
 builder.AddOllamaApiClient("ollama-gemma3")
   .AddChatClient()
-  .UseLogging()
-  .UseOpenTelemetry();
+  .UseDistributedCache()
+  .UseOpenTelemetry()
+  .UseLogging();
 
 builder.Services.AddMcpServer()
+  .WithHttpTransport()
   .WithPromptsFromAssembly()
   .WithToolsFromAssembly();
 
@@ -36,18 +38,7 @@ builder.Services.ConfigureHttpClientDefaults(http =>
 
 var app = builder.Build();
 
-app.MapMcp(""
-//   , runSessionAsync: (context, server, ct) =>
-// {
-//   server.RegisterNotificationHandler("Echo", (notification, token) =>
-//   {
-//     var message = notification.Params?["message"]?.GetValue<string>();
-//     context.RequestServices.GetService<ILogger>()?.LogInformation("Received message: {Message}", message);
-//     // return Task.FromResult($"Hello {message}");
-//     return Task.CompletedTask;
-//   });
-//   return Task.CompletedTask;}
-);
+app.MapMcp();
 
 // POST API to convert image to mermaid
 app.MapPost("/convert-image-to-mermaid", async (
@@ -60,7 +51,7 @@ app.MapPost("/convert-image-to-mermaid", async (
     // --- Security: Validate File Type (Content Type and/or Extension) ---
     // string[] allowedContentTypes = ["image/jpeg", "image/png", "image/gif", "image/bmp"];
     string[] allowedExtensions = [".jpg", ".jpeg", ".png", ".gif", ".bmp"];
-    var fileExtension = Path.GetExtension(imageFile.FileName)?.ToLowerInvariant();
+    var fileExtension = Path.GetExtension(imageFile.FileName).ToLowerInvariant();
 
     if (string.IsNullOrEmpty(fileExtension) ||
         !allowedExtensions.Contains(fileExtension) 

@@ -11,4 +11,4 @@ Content-Type: multipart/form-data; boundary=boundary_string_example_rider_will_r
 --boundary_string_example_rider_will_replace
 Content-Disposition: form-data; name="imageFile"; filename="ASPNETRoutingModel.png"
 
-< /path/img.png
+< /Users/mouaadgssair/Documents/ObsidianGitVault/ObsidianDocs/Resources/unclassified/ASPNETRoutingModel.png
