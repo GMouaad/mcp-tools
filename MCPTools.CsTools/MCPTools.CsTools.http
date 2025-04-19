@@ -1,0 +1,6 @@
+@MCPTools.CsTools_HostAddress = http://localhost:5280
+
+GET {{MCPTools.CsTools_HostAddress}}/hello/
+Accept: application/json
+
+###

@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MCPTools.CsTools\MCPTools.CsTools.csproj" />
     <ProjectReference Include="..\MCPTools.ImageTools\MCPTools.ImageTools.csproj" />
   </ItemGroup>
 

@@ -6,6 +6,7 @@ using Microsoft.Extensions.AI;
 var builder = WebApplication.CreateBuilder(args);
 
 
+builder.Services.AddOpenApi();
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddLogging(b => b.AddConsole().SetMinimumLevel(LogLevel.Trace));
 

@@ -162,7 +162,7 @@ public sealed partial class ImageToMermaidTool
     /// <returns>Cleaned Mermaid diagram code.</returns>
     private static string ExtractMermaidCode(string responseText)
     {
-        // Look for code blocks in markdown format
+        // Look for code blocks in the Markdown format
         var codeBlockMatch = MermaidRegex().Match(responseText);
 
         return codeBlockMatch.Success 

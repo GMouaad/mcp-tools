@@ -18,5 +18,13 @@ public class UtilityTools
     return localTime;
   }
   
+  // Get timestamp
+  [McpServerTool(Name = "GetTimestamp"), Description("Gets the current timestamp")]
+  public static string GetTimestamp([Description("The format of the timestamp")] string format = "yyyy-MM-dd HH:mm:ss")
+  {
+    var timestamp = DateTime.UtcNow.ToString(format);
+    return timestamp;
+  }
+  
   
 }

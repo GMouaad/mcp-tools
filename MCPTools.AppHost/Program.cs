@@ -6,13 +6,16 @@ var ollama = builder.AddOllama("ollama")
     .WithLifetime(ContainerLifetime.Persistent)
     .WithDataVolume()
     .WithOpenWebUI()
-    .WithContainerRuntimeArgs("--gpus", "all")
-  // .WithGPUSupport()
-  ;
+    .WithContainerRuntimeArgs("--gpus", "all");
 
 var gemma = ollama.AddModel("gemma3:4b");
 
 var imageTools = builder.AddProject<Projects.MCPTools_ImageTools>("image-tools")
+  .WithReference(gemma)
+  .WithOtlpExporter();
+
+
+var csTools = builder.AddProject<Projects.MCPTools_ImageTools>("csharp-tools")
   .WithReference(gemma)
   .WithOtlpExporter();
 
