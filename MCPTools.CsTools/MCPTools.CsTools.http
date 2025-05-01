@@ -3,4 +3,39 @@
 GET {{MCPTools.CsTools_HostAddress}}/hello/
 Accept: application/json
 
-###
+
+### Execute C# code in sandbox
+@host = https://localhost:7270
+POST {{host}}/execute-csharp?timeoutMs=5000
+Content-Type: text/plain
+
+Console.WriteLine("Hello from C# sandbox!");
+Console.WriteLine($"Current time is: {DateTime.Now}");
+
+var numbers = new List<int> { 1, 2, 3, 4, 5 };
+var sum = numbers.Sum();
+Console.WriteLine($"Sum of numbers: {sum}");
+
+return sum;
+
+### Execute complex C# code
+POST {{host}}/execute-csharp
+Content-Type: text/plain
+
+using System;
+using System.Linq;
+
+public class Calculator
+{
+    public static int Add(int a, int b) => a + b;
+}
+
+// Generate Fibonacci sequence
+var fib = new List<int> { 1, 1 };
+for (int i = 2; i < 10; i++)
+{
+    fib.Add(fib[i-1] + fib[i-2]);
+}
+
+Console.WriteLine($"Fibonacci sequence: {string.Join(", ", fib)}");
+Console.WriteLine($"5 + 3 = {Calculator.Add(5, 3)}");

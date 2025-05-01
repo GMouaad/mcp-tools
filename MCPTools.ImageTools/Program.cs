@@ -32,7 +32,7 @@ builder.Services.ConfigureHttpClientDefaults(http =>
   http.RemoveAllResilienceHandlers();
 #pragma warning restore EXTEXP0001
   http.ConfigureHttpClient(o => o.Timeout = TimeSpan.FromMinutes(3));
-  
+
   // Turn on service discovery by default
   http.AddServiceDiscovery();
 });
@@ -45,7 +45,7 @@ app.MapMcp();
 app.MapPost("/convert-image-to-mermaid", async (
     [FromServices] ILogger<ImageToMermaidTool> logger,
     [FromServices] ImageToMermaidTool tool,
-    [FromForm][Required] IFormFile imageFile,
+    [FromForm] [Required] IFormFile imageFile,
     [FromQuery] string? diagramType,
     [FromQuery] string? additionalInstructions, CancellationToken cancellationToken) =>
   {
@@ -55,9 +55,9 @@ app.MapPost("/convert-image-to-mermaid", async (
     var fileExtension = Path.GetExtension(imageFile.FileName).ToLowerInvariant();
 
     if (string.IsNullOrEmpty(fileExtension) ||
-        !allowedExtensions.Contains(fileExtension) 
+        !allowedExtensions.Contains(fileExtension)
         // || !allowedContentTypes.Contains(imageFile.ContentType.ToLowerInvariant())
-        )
+       )
     {
       logger.LogWarning("Upload attempt with invalid file type: {FileName} ({ContentType})",
         imageFile.FileName, imageFile.ContentType);
@@ -73,7 +73,9 @@ app.MapPost("/convert-image-to-mermaid", async (
       logger.LogWarning("Upload attempt with file exceeding size limit: {FileName} ({Size} bytes)",
         imageFile.FileName, imageFile.Length);
       return Results.BadRequest(new
-        { Message = $"File exceeds maximum size limit of {maxFileSize / 1024 / 1024} MB." });
+      {
+        Message = $"File exceeds maximum size limit of {maxFileSize / 1024 / 1024} MB."
+      });
     }
 
     // file stream to base64

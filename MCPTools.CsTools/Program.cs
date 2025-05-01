@@ -1,3 +1,5 @@
+using DotNetIsolator;
+using MCPTools.CsTools.Tools;
 using Microsoft.Extensions.AI;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,7 +20,8 @@ builder.AddOllamaApiClient("ollama-gemma3")
 builder.Services.AddMcpServer()
   .WithHttpTransport()
   .WithPromptsFromAssembly()
-  .WithToolsFromAssembly();
+  .WithTools<RoslynTools>()
+  .WithTools<SandboxTools>();
 
 builder.AddServiceDefaults();
 
@@ -28,7 +31,7 @@ builder.Services.ConfigureHttpClientDefaults(http =>
   http.RemoveAllResilienceHandlers();
 #pragma warning restore EXTEXP0001
   http.ConfigureHttpClient(o => o.Timeout = TimeSpan.FromMinutes(3));
-  
+
   // Turn on service discovery by default
   http.AddServiceDiscovery();
 });
@@ -42,7 +45,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 
 
 app.Run();

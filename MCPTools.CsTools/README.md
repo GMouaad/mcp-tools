@@ -1,0 +1,2 @@
+- [DotNetIsolator](https://github.com/SteveSandersonMS/DotNetIsolator)
+- ![](https://youtu.be/5u1UaqkPZbg?si=q71meLNrdn_lFGEY)

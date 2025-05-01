@@ -8,17 +8,17 @@
     <UserSecretsId>a5b1ffa4-a4c9-4cfc-897b-397e7139ac71</UserSecretsId>
   </PropertyGroup>
 
-  <Sdk Name="Aspire.AppHost.Sdk" Version="9.2.0" />
-  
+  <Sdk Name="Aspire.AppHost.Sdk" Version="9.2.0"/>
+
   <ItemGroup>
-    <PackageReference Include="Aspire.Hosting.AppHost" Version="9.2.0" />
-    <PackageReference Include="CommunityToolkit.Aspire.Hosting.NodeJS.Extensions" Version="9.3.1-beta.260" />
-    <PackageReference Include="CommunityToolkit.Aspire.Hosting.Ollama" Version="9.3.1-beta.260" />
+    <PackageReference Include="Aspire.Hosting.AppHost" Version="9.2.1"/>
+    <PackageReference Include="CommunityToolkit.Aspire.Hosting.NodeJS.Extensions" Version="9.4.0"/>
+    <PackageReference Include="CommunityToolkit.Aspire.Hosting.Ollama" Version="9.3.1-beta.260"/>
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MCPTools.CsTools\MCPTools.CsTools.csproj" />
-    <ProjectReference Include="..\MCPTools.ImageTools\MCPTools.ImageTools.csproj" />
+    <ProjectReference Include="..\MCPTools.CsTools\MCPTools.CsTools.csproj"/>
+    <ProjectReference Include="..\MCPTools.ImageTools\MCPTools.ImageTools.csproj"/>
   </ItemGroup>
 
 </Project>
