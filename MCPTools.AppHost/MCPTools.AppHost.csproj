@@ -11,9 +11,9 @@
   <Sdk Name="Aspire.AppHost.Sdk" Version="9.2.0" />
   
   <ItemGroup>
-    <PackageReference Include="Aspire.Hosting.AppHost" Version="9.2.0" />
-    <PackageReference Include="CommunityToolkit.Aspire.Hosting.NodeJS.Extensions" Version="9.3.1-beta.260" />
-    <PackageReference Include="CommunityToolkit.Aspire.Hosting.Ollama" Version="9.3.1-beta.260" />
+    <PackageReference Include="Aspire.Hosting.AppHost" />
+    <PackageReference Include="CommunityToolkit.Aspire.Hosting.NodeJS.Extensions" />
+    <PackageReference Include="CommunityToolkit.Aspire.Hosting.Ollama" />
   </ItemGroup>
 
   <ItemGroup>

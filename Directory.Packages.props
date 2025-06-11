@@ -1,0 +1,26 @@
+<Project>
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageVersion Include="Aspire.Hosting.AppHost" Version="9.2.0" />
+    <PackageVersion Include="CommunityToolkit.Aspire.Hosting.NodeJS.Extensions" Version="9.3.1-beta.260" />
+    <PackageVersion Include="CommunityToolkit.Aspire.Hosting.Ollama" Version="9.3.1-beta.260" />
+    <PackageVersion Include="CommunityToolkit.Aspire.OllamaSharp" Version="9.5.1-beta.306" />
+    <PackageVersion Include="DotNetIsolator" Version="0.1.0-preview.10032" />
+    <PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="9.0.6" />
+    <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="4.13.0" />
+    <PackageVersion Include="Microsoft.Extensions.AI" Version="9.6.0" />
+    <PackageVersion Include="Microsoft.Extensions.AI.Abstractions" Version="9.6.0" />
+    <PackageVersion Include="Microsoft.Extensions.AI.Ollama" Version="9.4.0-preview.1.25207.5" />
+    <PackageVersion Include="Microsoft.Extensions.Http.Resilience" Version="9.6.0" />
+    <PackageVersion Include="Microsoft.Extensions.ServiceDiscovery" Version="9.3.1" />
+    <PackageVersion Include="ModelContextProtocol" Version="0.2.0-preview.3" />
+    <PackageVersion Include="ModelContextProtocol.AspNetCore" Version="0.1.0-preview.10" />
+    <PackageVersion Include="OpenTelemetry.Exporter.OpenTelemetryProtocol" Version="1.12.0" />
+    <PackageVersion Include="OpenTelemetry.Extensions.Hosting" Version="1.12.0" />
+    <PackageVersion Include="OpenTelemetry.Instrumentation.AspNetCore" Version="1.12.0" />
+    <PackageVersion Include="OpenTelemetry.Instrumentation.Http" Version="1.12.0" />
+    <PackageVersion Include="OpenTelemetry.Instrumentation.Runtime" Version="1.12.0" />
+  </ItemGroup>
+</Project>
