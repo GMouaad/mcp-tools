@@ -32,25 +32,23 @@ public sealed partial class ImageToMermaidTool
     _logger = logger ?? throw new ArgumentNullException(nameof(logger));
   }
 
-  /// <summary>
-  /// Converts an image to a Mermaid diagram.
-  /// </summary>
-  /// <param name="imageData">Base64-encoded image data.</param>
-  /// <param name="diagramType">Type of diagram to generate (flowchart, sequence, class, etc.).</param>
-  /// <param name="additionalInstructions">Optional instructions to guide the diagram generation.</param>
-  /// <param name="cancellationToken">A token to cancel the operation.</param>
-  /// <returns>A string containing the Mermaid diagram code.</returns>
-  [McpServerTool(Name = "ConvertBase64ImageToMermaid"), Description("Converts an image to a Mermaid diagram")]
-  public async Task<string> ConvertBase64ImageToMermaid(
-    [Description("Base64-encoded image data")]
-    string imageData,
-    [Description("Type of diagram to generate (flowchart, sequence, class, etc.)")]
-    string diagramType = "flowchart",
-    [Description("Optional instructions to guide the diagram generation")]
-    string? additionalInstructions = null,
-    CancellationToken cancellationToken = default)
-  {
-    _logger.LogInformation("Starting image to Mermaid conversion, diagram type: {DiagramType}", diagramType);
+    /// <summary>
+    /// Converts an image to a Mermaid diagram.
+    /// </summary>
+    /// <param name="imageData">Base64-encoded image data.</param>
+    /// <param name="diagramType">Type of diagram to generate (flowchart, sequence, class, etc.).</param>
+    /// <param name="additionalInstructions">Optional instructions to guide the diagram generation.</param>
+    /// <param name="cancellationToken">A token to cancel the operation.</param>
+    /// <returns>A string containing the Mermaid diagram code.</returns>
+    [McpServerTool(Name = "ConvertBase64ImageToMermaid")]
+    [Description("Converts an image to a Mermaid diagram")]
+    public async Task<string> ConvertBase64ImageToMermaid(
+        [Description("Base64-encoded image data")] string imageData,
+        [Description("Type of diagram to generate (flowchart, sequence, class, etc.)")] string diagramType = "flowchart",
+        [Description("Optional instructions to guide the diagram generation")] string? additionalInstructions = null,
+        CancellationToken cancellationToken = default)
+    {
+        _logger.LogInformation("Starting image to Mermaid conversion, diagram type: {DiagramType}", diagramType);
 
     try
     {

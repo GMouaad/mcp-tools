@@ -5,18 +5,19 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
+
   <ItemGroup>
-    <PackageReference Include="CommunityToolkit.Aspire.OllamaSharp" Version="9.3.1-beta.265"/>
-    <PackageReference Include="Microsoft.Extensions.AI" Version="9.4.0-preview.1.25207.5"/>
-    <PackageReference Include="Microsoft.Extensions.AI.Abstractions" Version="9.4.0-preview.1.25207.5"/>
-    <PackageReference Include="Microsoft.Extensions.AI.Ollama" Version="9.4.0-preview.1.25207.5"/>
-    <PackageReference Include="ModelContextProtocol" Version="0.1.0-preview.11"/>
-    <PackageReference Include="ModelContextProtocol.AspNetCore" Version="0.1.0-preview.11"/>
-    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.4"/>
+    <PackageReference Include="CommunityToolkit.Aspire.OllamaSharp" />
+    <PackageReference Include="Microsoft.Extensions.AI" />
+    <PackageReference Include="Microsoft.Extensions.AI.Abstractions" />
+    <PackageReference Include="Microsoft.Extensions.AI.Ollama" />
+    <PackageReference Include="ModelContextProtocol" />
+    <PackageReference Include="ModelContextProtocol.AspNetCore" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi"/>
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MCPTools.ServiceDefaults\MCPTools.ServiceDefaults.csproj"/>
+    <ProjectReference Include="..\MCPTools.ServiceDefaults\MCPTools.ServiceDefaults.csproj" />
   </ItemGroup>
 
 </Project>
